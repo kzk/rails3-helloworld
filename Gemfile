@@ -6,11 +6,28 @@ gem 'rack', '1.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-gem 'mysql2', '0.2.11'
+platforms :ruby do
+  gem 'sqlite3'
+  gem 'mysql2', '0.2.11'
 
-# Use unicorn as the web server
-gem 'unicorn'
+  # Use unicorn as the web server
+  gem 'unicorn'
+end
+
+# JRuby-Specifics
+platforms :jruby do
+  gem 'json-jruby', :require => "json"
+  gem 'jruby-openssl'
+
+  # Trinidad
+  gem 'trinidad', "~> 1.2.1"
+  gem 'trinidad_dbpool', "~> 0.3.0"
+  gem 'trinidad_mysql_dbpool_extension'
+
+  # ActiveRecord
+  gem 'activerecord-jdbc-adapter'
+  gem "activerecord-jdbcmysql-adapter", "~> 1.1.2"
+end
 
 # Deploy with Capistrano
 # gem 'capistrano'

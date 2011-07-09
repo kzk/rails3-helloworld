@@ -1,0 +1,18 @@
+---
+  environment: 'production'
+  port: 4001
+  jruby_min_runtimes: 1 # min number of runtimes
+  jruby_max_runtimes: 1 # max number of runtimes
+
+  web_apps:
+   default:
+    extensions:
+     mysql_dbpool:
+      jndi: 'jdbc/trd_api_production'                       # jndi name
+      encoding: 'utf-8'                                     # database encoding
+      username: 'root'                                      # database username
+      password: ''                                          # database password
+      url: 'jdbc:mysql://localhost:3306/trd_api_production' # database url
+      maxActive: 100                                        # max nodes actives
+      maxIdle: 30                                           # max nodes idles
+      maxWait: 10000                                        # max nodes waiting
